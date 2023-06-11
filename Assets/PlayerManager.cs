@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +27,11 @@ public class PlayerManager : MonoBehaviour
         playerLastCheckPointPos = new List<Vector3>();
     }
 
+    /// <summary>
+    /// Create players
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="initialPosition"></param>
     public void RegisterPlayer(ThatsHowWeRoll player, Vector3 initialPosition)
     {
         players.Add(player);
@@ -35,6 +39,11 @@ public class PlayerManager : MonoBehaviour
         playerLastCheckPointPos.Add(initialPosition);
     }
 
+    /// <summary>
+    /// Manage the last checkpoint of the player
+    /// </summary>
+    /// <param name="playerIndex"></param>
+    /// <param name="checkpointPos"></param>
     public void SetLastCheckPointPosition(int playerIndex, Vector3 checkpointPos)
     {
         if (playerIndex >= 0 && playerIndex < playerLastCheckPointPos.Count)
@@ -43,16 +52,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Clear players
+    /// </summary>
     public void ClearPlayers()
     {
         players.Clear();
         playerTransformList.Clear();
         playerLastCheckPointPos.Clear();
-    }
-
-    public int GetNextPlayerID()
-    {
-        int playerID = players.Count;
-        return playerID;
     }
 }

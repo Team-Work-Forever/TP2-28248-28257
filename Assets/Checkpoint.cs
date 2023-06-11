@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
     private Checkpoints checkpoints;
 
+    /// <summary>
+    /// Collision between checkpoint and player
+    /// Define the new last checkpoint of the player
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -19,7 +22,6 @@ public class Checkpoint : MonoBehaviour
             checkpoints.PlayerThroughCheckpoint(this, other.transform, playerIndex);
         }
     }
-
 
     public void SetTrackCheckpoints(Checkpoints checkpoints)
     {

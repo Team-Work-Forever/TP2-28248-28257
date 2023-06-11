@@ -52,12 +52,18 @@ public class CameraController : MonoBehaviour
         HandleRotation();
     }
 
+    /// <summary>
+    /// Move with the player
+    /// </summary>
     void HandleMovement()
     {
         Vector3 targetPos = playerTarget.TransformPoint(moveOffset);
         transform.position = Vector3.Lerp(transform.position, targetPos, move * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Rotate with the player
+    /// </summary>
     void HandleRotation()
     {
         var direction = playerTarget.position - transform.position;

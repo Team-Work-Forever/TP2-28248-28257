@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +8,9 @@ public class Checkpoints : MonoBehaviour
     private List<Checkpoint> checkpointsList;
     private List<int> nextCheckpointIndexList;
 
+    /// <summary>
+    /// Define all checkpoints of the track and players
+    /// </summary>
     private void Awake()
     {
         Transform checkpoints = transform.Find("CheckPoints");
@@ -39,6 +41,9 @@ public class Checkpoints : MonoBehaviour
         FillPlayerTransformList();
     }
 
+    /// <summary>
+    /// Define all players and theirs next checkpoint
+    /// </summary>
     private void FillPlayerTransformList()
     {
         playerTransformList = new List<Transform>();
@@ -60,9 +65,14 @@ public class Checkpoints : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Change the next checkpoint of the player if he pass the correct one
+    /// </summary>
+    /// <param name="checkpoint"></param>
+    /// <param name="player"></param>
+    /// <param name="playerIndex"></param>
     public void PlayerThroughCheckpoint(Checkpoint checkpoint, Transform player, int playerIndex)
     {
-        int checkpointIndex = checkpointsList.IndexOf(checkpoint);
         int nextCheckpointIndex = nextCheckpointIndexList[playerIndex];
         if (checkpointsList.IndexOf(checkpoint) == nextCheckpointIndex)
         {

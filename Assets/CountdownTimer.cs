@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -21,6 +20,9 @@ public class CountdownTimer : MonoBehaviour
 
     private ThatsHowWeRoll playerInputs;
 
+    /// <summary>
+    /// Block the movements of the players in the begin of the game and begin the countdown
+    /// </summary>
     public void Start()
     {
         playerInputs = player.GetComponent<ThatsHowWeRoll>();
@@ -33,6 +35,10 @@ public class CountdownTimer : MonoBehaviour
         StartCoroutine(CountdownOnStart());
     }
 
+    /// <summary>
+    /// Countdown Timer and manage of the player interface
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CountdownOnStart()
     {
         while (countdownTime > 0)
@@ -68,11 +74,17 @@ public class CountdownTimer : MonoBehaviour
         checkpointDisplay.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Go to Initial Menu
+    /// </summary>
     public void InitialMenu()
     {
         SceneManager.LoadScene("Menu");
     }
 
+    /// <summary>
+    /// Manage of interface when one player win the game and block the movement of the players
+    /// </summary>
     public void FinishGame()
     {
         if (playerInputs == Global.winnerPlayer)

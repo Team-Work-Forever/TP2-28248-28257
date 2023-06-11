@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckpointsPlayer : MonoBehaviour
@@ -14,9 +13,12 @@ public class CheckpointsPlayer : MonoBehaviour
     private void Start()
     {
         playerManager = PlayerManager.instance;
-        ThatsHowWeRoll player = GetComponent<ThatsHowWeRoll>();
     }
 
+    /// <summary>
+    /// Define last checkpoint
+    /// </summary>
+    /// <param name="checkpointPos"></param>
     public void SetLastCheckPoint(Vector3 checkpointPos)
     {
         if (playerManager != null && playerIndex < playerManager.playerLastCheckPointPos.Count)

@@ -16,6 +16,9 @@ public class UIInterface : MonoBehaviour
         UpdateInfo();
     }
 
+    /// <summary>
+    /// Verify if game is finish
+    /// </summary>
     void Update()
     {
         if (Global.finish)
@@ -25,17 +28,28 @@ public class UIInterface : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Give the possibility of change counter time
+    /// </summary>
+    /// <param name="timer"></param>
     public void SetCountdownTimer(CountdownTimer timer)
     {
         countdownTimer = timer;
     }
 
+    /// <summary>
+    /// Define player to UI
+    /// </summary>
+    /// <param name="currentPlayer"></param>
     public void SetPlayer(ThatsHowWeRoll currentPlayer)
     {
         player = currentPlayer;
         checkpointsPlayer = currentPlayer.GetComponentInChildren<CheckpointsPlayer>();
     }
 
+    /// <summary>
+    /// Present the info of the player and when the laps of the player are equal to the number of laps needed finish the game
+    /// </summary>
     public void UpdateInfo()
     {
         velocityDisplay.text = player.velocity.ToString();
@@ -59,6 +73,10 @@ public class UIInterface : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Finish the game
+    /// </summary>
+    /// <param name="winnerPlayer"></param>
     public void CheckWinner(ThatsHowWeRoll winnerPlayer)
     {
         Global.finish = true;

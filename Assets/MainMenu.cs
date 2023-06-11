@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
+    /// <summary>
+    /// Start Game
+    /// </summary>
     public void PlayGame()
     {
         PlayerManager.instance.ClearPlayers();
@@ -11,11 +14,17 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    /// <summary>
+    /// Make button sound
+    /// </summary>
     public void DoSound()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick");
     }
 
+    /// <summary>
+    /// Exit Game
+    /// </summary>
     public void ExitGame()
     {
         Application.Quit();

@@ -14,11 +14,17 @@ public class PowerUp : MonoBehaviour
 
     private float originalY;
 
+    /// <summary>
+    /// Define original position of power ups
+    /// </summary>
     private void Start()
     {
         originalY = transform.position.y;
     }
 
+    /// <summary>
+    /// Make the power ups rotate and go down and up
+    /// </summary>
     private void Update()
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
@@ -27,6 +33,10 @@ public class PowerUp : MonoBehaviour
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
+    /// <summary>
+    /// When player collide with power up
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -35,6 +45,10 @@ public class PowerUp : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Pick up power up and change acceleration of player for 5 seconds
+    /// </summary>
+    /// <param name="player"></param>
     private void Pickup(Collider player)
     {
         FindObjectOfType<AudioManager>().Play("PowerUp");
@@ -48,6 +62,9 @@ public class PowerUp : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Reset the acceleration
+    /// </summary>
     private void ResetSpeed()
     {
         carController.maxAcceleration = originalMaxAcceleration;

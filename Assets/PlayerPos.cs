@@ -6,6 +6,9 @@ public class PlayerPos : MonoBehaviour
     public List<ThatsHowWeRoll> players;
     private PlayerManager playerManager;
 
+    /// <summary>
+    /// Define the first position of the player
+    /// </summary>
     private void Start()
     {
         playerManager = PlayerManager.instance;
@@ -22,24 +25,18 @@ public class PlayerPos : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Wait for player click to respawn
+    /// </summary>
     void Update()
     {
         RespawnManual();
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("Respawn"))
-    //     {
-    //         for (int i = 0; i < players.Count; i++)
-    //         {
-    //             ThatsHowWeRoll player = players[i];
-    //             int playerIndex = playerManager.players.IndexOf(player);
-    //             player.transform.position = playerManager.playerLastCheckPointPos[playerIndex];
-    //         }
-    //     }
-    // }
-
+    /// <summary>
+    /// On collision with the GameObject with tag "Respawn", player is teleported to last checkpoint
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Respawn"))
@@ -53,8 +50,10 @@ public class PlayerPos : MonoBehaviour
         }
     }
 
-
-
+    /// <summary>
+    /// When player click in his button to respawn, player is teleported to last checkpoint
+    /// </summary>
+    /// <param name="collision"></param>
     private void RespawnManual()
     {
         for (int i = 0; i < players.Count; i++)

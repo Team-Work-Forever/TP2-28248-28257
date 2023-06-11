@@ -55,6 +55,9 @@ public class ThatsHowWeRoll : MonoBehaviour
         lastPosition = transform.position;
     }
 
+    /// <summary>
+    /// Define the velocity of the players, wait for inputs and present effects by the movement of the car
+    /// </summary>
     public void Update()
     {
         GetInputs();
@@ -84,6 +87,9 @@ public class ThatsHowWeRoll : MonoBehaviour
         Brake();
     }
 
+    /// <summary>
+    /// Get inputs of the two players
+    /// </summary>
     void GetInputs()
     {
         int playerIndex = PlayerManager.instance.players.IndexOf(this);
@@ -107,6 +113,9 @@ public class ThatsHowWeRoll : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Make the car move forwards and backwards
+    /// </summary>
     void Roll()
     {
         foreach (var wheel in wheels)
@@ -115,6 +124,9 @@ public class ThatsHowWeRoll : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Make the car brake
+    /// </summary>
     void Brake()
     {
         int playerIndex = PlayerManager.instance.players.IndexOf(this);
@@ -157,6 +169,9 @@ public class ThatsHowWeRoll : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Make the car turn
+    /// </summary>
     void Steer()
     {
         foreach (var wheel in wheels)
@@ -169,6 +184,9 @@ public class ThatsHowWeRoll : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Animate the wheels when car is moving
+    /// </summary>
     void AnimationWheels()
     {
         foreach (var wheel in wheels)
@@ -181,6 +199,9 @@ public class ThatsHowWeRoll : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Make wheel effects while car is braking
+    /// </summary>
     void WheelEffects()
     {
         foreach (var wheel in wheels)
